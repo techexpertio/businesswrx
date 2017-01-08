@@ -66,8 +66,17 @@ CREATE TABLE bwrx_schema_field (
 	is_text_format boolean,
 	text_format_pattern varchar(255),
 	is_text_length boolean,
-	text_length_min integer,
-	text_length_max integer,
+	range_min integer, --supports text lengths or integer ranges
+	range_max integer, --supports text lengths or integer ranges
+	directory_name varchar(255), --can enter new value or select a vocabulary
+	user_group_contains varchar(15), --can contain users, groups or both
+	document_value_stored varchar(15), -- 
 	
 	
+)
+
+CREATE TABLE bwrx_sub_fields (
+	complex_id  integer PRIMARY KEY nextval('serial'),
+	schema_field_id integer FOREIGN KEY,
+	CONSTRAINT...
 )
